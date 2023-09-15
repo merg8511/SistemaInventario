@@ -1,0 +1,21 @@
+﻿@using SistemaInventario.Utilities
+
+@if (TempData[DS.Success] != null)
+{
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+    <script>
+        toastr.success('@TempData[DS.Success]');
+    </script>
+}
+
+@if (TempData[DS.Error] != null)
+{
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+    <script>
+        toastr.success('@TempData[DS.Error]');
+    </script>
+}

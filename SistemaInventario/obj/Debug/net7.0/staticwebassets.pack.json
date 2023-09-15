@@ -17,6 +17,10 @@
       "PackagePath": "staticwebassets\\js\\site.js"
     },
     {
+      "Id": "C:\\Proyectos\\SistemaInventario\\SistemaInventario\\wwwroot\\js\\warehouse.js",
+      "PackagePath": "staticwebassets\\js\\warehouse.js"
+    },
+    {
       "Id": "C:\\Proyectos\\SistemaInventario\\SistemaInventario\\wwwroot\\lib\\bootstrap\\LICENSE",
       "PackagePath": "staticwebassets\\lib\\bootstrap"
     },
