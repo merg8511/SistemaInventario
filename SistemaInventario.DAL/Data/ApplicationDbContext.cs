@@ -11,8 +11,8 @@ namespace SistemaInventario.DAL.Data
             : base(options)
         {
         }
-
         public DbSet<Warehouse> Warehouses { get; set; }
+        public DbSet<Category> Categories { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {

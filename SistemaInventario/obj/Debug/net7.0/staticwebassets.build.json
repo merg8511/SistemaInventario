@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "P2Jic9t1IfRZJ3VBJVwZ5ccpHFQTWZoh44SEYRKkEh4=",
+  "Hash": "fH8+j+Y7nRh4OtzVhrmNdYxFXs7Lhudw16IDMxXofMg=",
   "Source": "SistemaInventario",
   "BasePath": "_content/SistemaInventario",
   "Mode": "Default",
@@ -83,6 +83,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\favicon.ico"
+    },
+    {
+      "Identity": "C:\\Proyectos\\SistemaInventario\\SistemaInventario\\wwwroot\\js\\category.js",
+      "SourceId": "SistemaInventario",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Proyectos\\SistemaInventario\\SistemaInventario\\wwwroot\\",
+      "BasePath": "_content/SistemaInventario",
+      "RelativePath": "js/category.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\category.js"
     },
     {
       "Identity": "C:\\Proyectos\\SistemaInventario\\SistemaInventario\\wwwroot\\js\\site.js",

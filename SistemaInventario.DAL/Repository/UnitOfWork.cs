@@ -12,11 +12,13 @@ namespace SistemaInventario.DAL.Repository
     {
         private readonly ApplicationDbContext _dbContext;
         public IWarehouseRepository Warehouse { get; private set; }
+        public ICategoryRepository Category { get; private set; }
 
         public UnitOfWork(ApplicationDbContext dbContext)
         {
             _dbContext = dbContext;
             Warehouse = new WarehouseRepository(_dbContext);
+            Category = new CategoryRepository(_dbContext);
         }
 
         public void Dispose()

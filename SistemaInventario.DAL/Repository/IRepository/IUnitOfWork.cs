@@ -9,6 +9,7 @@ namespace SistemaInventario.DAL.Repository.IRepository
     public interface IUnitOfWork : IDisposable
     {
         IWarehouseRepository Warehouse { get; }
+        ICategoryRepository Category { get; }
         Task Save();
     }
 }
