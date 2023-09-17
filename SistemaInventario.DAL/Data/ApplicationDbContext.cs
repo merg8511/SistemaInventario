@@ -13,7 +13,7 @@ namespace SistemaInventario.DAL.Data
         }
         public DbSet<Warehouse> Warehouses { get; set; }
         public DbSet<Category> Categories { get; set; }
-
+        public DbSet<Brand> Brands { get; set; }
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
