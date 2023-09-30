@@ -1,0 +1,140 @@
+﻿@model SistemaInventario.Models.ViewModels.ProductVM
+@using SistemaInventario.Utilities
+
+@{
+
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var title = "Crear nuevo producto";
+}
+
+<form method="post" enctype="multipart/form-data">
+    @if (Model.Product.Id != 0)
+    {
+        title = "Editar producto";
+        <input asp-for="Product.Id" hidden />
+        <input asp-for="Product.UrlImage" hidden />
+    }
+
+    <div class="border p-3">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="row">
+            <h2 class="text-primary offset-2">@title</h2>
+        </div>
+
+        <div class="row">
+            <div class="col-8">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-6 ">
+                            <label>Numero de serie</label>
+                            <input asp-for="Product.SerieNumber" class="form-control" />
+                            <span asp-validation-for="Product.SerieNumber" class="text-danger"></span>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label>Descripción</label>
+                            <input asp-for="Product.Description" class="form-control" />
+                            <span asp-validation-for="Product.Description" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label>Costo</label>
+                            <input asp-for="Product.Cost" class="form-control" />
+                            <span asp-validation-for="Product.Cost" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label>Precio</label>
+                            <input asp-for="Product.Price" class="form-control" />
+                            <span asp-validation-for="Product.Price" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label>Imagen</label>
+                            <input type="file" accept="image/png, image/gif, image/jpeg" name="files" id="imageId" class="form-control" />
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label>Categoria</label>
+                            <select asp-for="Product.CategoryId" asp-items="@Model.CategoryList" class="form-select">
+                                <option disabled selected>-- Seleccione una categoria</option>
+                            </select>
+                            <span asp-validation-for="Product.CategoryId" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label>Marca</label>
+                            <select asp-for="Product.BrandId" asp-items="@Model.BrandList" class="form-select">
+                                <option disabled selected>-- Seleccione una categoria</option>
+                            </select>
+                            <span asp-validation-for="Product.BrandId" class="text-danger"></span>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label>Padre</label>
+                            <select asp-for="Product.ParentId" asp-items="@Model.ParentList" class="form-select">
+                                <option disabled selected>-- Seleccione un producto padre</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label>Marca</label>
+                            <select asp-for="Product.pState" class="form-select">
+                                <option value="true">Activo</option>
+                                <option value="false">Inactivo</option>
+                            </select>
+                            <span asp-validation-for="Product.pState" class="text-danger"></span>
+                        </div>
+                    </div>
+
+                    <br />
+                    <div class="d-grid gap-2 d-md-block">
+                        @if (Model.Product.Id != 0)
+                        {
+                            <partial name="_UpdateBackButtons" model="Model.Product.Id" />
+                        }
+                        else
+                        {
+                            <button type="submit" onclick="return ImageValidation()" class="btn btn-primary"><i class="bi bi-plus-square-fill"></i> Crear</button>
+                            <a asp-action="Index" class="btn btn-secondary"><i class="bi bi-arrow-return-left"></i>Regresar</a>
+                        }
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-4 text-center">
+                @if (Model.Product.Id != 0)
+                {
+                    <img src="@DS.ImagenRuta@Model.Product.UrlImage" style="width:100%;border-radius:5px;border:1px solid #bbb" />
+                }
+            </div>
+        </div>
+
+    </div>
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+
+    <script>
+
+        function ImageValidation() {
+            if (document.getElementById("imageId").value == "") {
+                swal("Error", "Seleccione una imagen", "error")
+                return false;
+            }
+            return true;
+        }
+    </script>
+}
