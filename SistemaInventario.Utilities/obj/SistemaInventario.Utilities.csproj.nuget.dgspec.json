@@ -10,11 +10,11 @@
         "projectUniqueName": "C:\\Proyectos\\SistemaInventario\\SistemaInventario.Utilities\\SistemaInventario.Utilities.csproj",
         "projectName": "SistemaInventario.Utilities",
         "projectPath": "C:\\Proyectos\\SistemaInventario\\SistemaInventario.Utilities\\SistemaInventario.Utilities.csproj",
-        "packagesPath": "C:\\Users\\merg8\\.nuget\\packages\\",
+        "packagesPath": "C:\\Users\\Dev\\.nuget\\packages\\",
         "outputPath": "C:\\Proyectos\\SistemaInventario\\SistemaInventario.Utilities\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\merg8\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Dev\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [

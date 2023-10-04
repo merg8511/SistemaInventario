@@ -6647,7 +6647,7 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\merg8\\.nuget\\packages\\": {}
+    "C:\\Users\\Dev\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
@@ -6655,11 +6655,11 @@
       "projectUniqueName": "C:\\Proyectos\\SistemaInventario\\SistemaInventario.Models\\SistemaInventario.Models.csproj",
       "projectName": "SistemaInventario.Models",
       "projectPath": "C:\\Proyectos\\SistemaInventario\\SistemaInventario.Models\\SistemaInventario.Models.csproj",
-      "packagesPath": "C:\\Users\\merg8\\.nuget\\packages\\",
+      "packagesPath": "C:\\Users\\Dev\\.nuget\\packages\\",
       "outputPath": "C:\\Proyectos\\SistemaInventario\\SistemaInventario.Models\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\merg8\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Dev\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
