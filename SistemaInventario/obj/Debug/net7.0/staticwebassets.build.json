@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "KoSmQhItfuiLdPbZ5ipoa8cTBtjca/deqfastN3NzXo=",
+  "Hash": "H9QvpJQ6yFCYCAjdYQGeWBMxUBFGQ++FkvDX2YF7vwk=",
   "Source": "SistemaInventario",
   "BasePath": "_content/SistemaInventario",
   "Mode": "Default",
@@ -83,6 +83,40 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\favicon.ico"
+    },
+    {
+      "Identity": "C:\\Proyectos\\SistemaInventario\\SistemaInventario\\wwwroot\\imagenes\\icono.ico",
+      "SourceId": "SistemaInventario",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Proyectos\\SistemaInventario\\SistemaInventario\\wwwroot\\",
+      "BasePath": "_content/SistemaInventario",
+      "RelativePath": "imagenes/icono.ico",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\imagenes\\icono.ico"
+    },
+    {
+      "Identity": "C:\\Proyectos\\SistemaInventario\\SistemaInventario\\wwwroot\\imagenes\\icono.png",
+      "SourceId": "SistemaInventario",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Proyectos\\SistemaInventario\\SistemaInventario\\wwwroot\\",
+      "BasePath": "_content/SistemaInventario",
+      "RelativePath": "imagenes/icono.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\imagenes\\icono.png"
     },
     {
       "Identity": "C:\\Proyectos\\SistemaInventario\\SistemaInventario\\wwwroot\\imagenes\\producto\\09b3e662-c506-4ade-8553-95de8c65fc8d.JPG",
