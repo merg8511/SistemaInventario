@@ -12,5 +12,9 @@ namespace SistemaInventario.Utilities
         public const string Error = "Error";
 
         public const string ImagenRuta = @"\imagenes\producto\";
+
+        public const string Role_Admin = "Admin";
+        public const string Role_Client = "Client";
+        public const string Role_Inventory = "Inventory";
     }
 }
