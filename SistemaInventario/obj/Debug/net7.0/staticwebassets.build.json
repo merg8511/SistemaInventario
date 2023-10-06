@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "xZpchcmZvmMzVcvqy3uqyDk67flnAGB8BQxXePyn568=",
+  "Hash": "4dmBfXOQArLrv1k/fpUmjXSzpCon0Dv6tVV2bEC/H5I=",
   "Source": "SistemaInventario",
   "BasePath": "_content/SistemaInventario",
   "Mode": "Default",
@@ -321,6 +321,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\js\\site.js"
+    },
+    {
+      "Identity": "C:\\Proyectos\\SistemaInventario\\SistemaInventario\\wwwroot\\js\\user.js",
+      "SourceId": "SistemaInventario",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Proyectos\\SistemaInventario\\SistemaInventario\\wwwroot\\",
+      "BasePath": "_content/SistemaInventario",
+      "RelativePath": "js/user.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\user.js"
     },
     {
       "Identity": "C:\\Proyectos\\SistemaInventario\\SistemaInventario\\wwwroot\\js\\warehouse.js",

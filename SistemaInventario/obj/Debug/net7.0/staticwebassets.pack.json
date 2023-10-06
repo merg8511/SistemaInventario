@@ -69,6 +69,10 @@
       "PackagePath": "staticwebassets\\js\\site.js"
     },
     {
+      "Id": "C:\\Proyectos\\SistemaInventario\\SistemaInventario\\wwwroot\\js\\user.js",
+      "PackagePath": "staticwebassets\\js\\user.js"
+    },
+    {
       "Id": "C:\\Proyectos\\SistemaInventario\\SistemaInventario\\wwwroot\\js\\warehouse.js",
       "PackagePath": "staticwebassets\\js\\warehouse.js"
     },
