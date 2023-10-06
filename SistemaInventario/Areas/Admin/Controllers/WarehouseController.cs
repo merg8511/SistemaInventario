@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using SistemaInventario.DAL.Repository.IRepository;
 using SistemaInventario.Models;
 using SistemaInventario.Utilities;
@@ -6,6 +7,7 @@ using SistemaInventario.Utilities;
 namespace SistemaInventario.Areas.Admin.Controllers
 {
     [Area("Admin")]
+    [Authorize(Roles = DS.Role_Admin)]
     public class WarehouseController : Controller
     {
         private readonly IUnitOfWork _unitOfWork;

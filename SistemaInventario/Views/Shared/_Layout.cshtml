@@ -1,4 +1,6 @@
-﻿<!DOCTYPE html>
+﻿@using SistemaInventario.Utilities
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -32,36 +34,34 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
                         </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">
-                                Contenido
-                            </a>
-                            <ul class="dropdown-menu">
-                                <li>
-                                    <a class="dropdown-item" asp-area="Admin" asp-controller="Warehouse" asp-action="Index">Bodega</a>
-                                </li>
-                                <li>
-                                    <a class="dropdown-item" asp-area="Admin" asp-controller="Category" asp-action="Index">Categoria</a>
-                                </li>
-                                <li>
-                                    <a class="dropdown-item" asp-area="Admin" asp-controller="Brand" asp-action="Index">Marcas</a>
-                                </li>
-                                <li>
-                                    <a class="dropdown-item" asp-area="Admin" asp-controller="Product" asp-action="Index">Productos</a>
-                                </li>
-                            </ul>
-                        </li>
-
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">
-                                Usuario
-                            </a>
-                            <ul class="dropdown-menu">
-                                <li>
-                                    <a class="dropdown-item" asp-area="Admin" asp-controller="User" asp-action="Index">Usuario</a>
-                                </li>
-                            </ul>
-                        </li>
+                        @if (User.IsInRole(DS.Role_Admin) || User.IsInRole(DS.Role_Inventory))
+                        {
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Contenido
+                                </a>
+                                <ul class="dropdown-menu">
+                                    @if (User.IsInRole(DS.Role_Admin))
+                                    {
+                                        <li><a class="dropdown-item" asp-area="Admin" asp-controller="Warehouse" asp-action="Index">Bodega</a></li>
+                                        <li><a class="dropdown-item" asp-area="Admin" asp-controller="Category" asp-action="Index">Categoria</a></li>
+                                        <li><a class="dropdown-item" asp-area="Admin" asp-controller="Brand" asp-action="Index">Marcas</a></li>
+                                    }
+                                    <li><a class="dropdown-item" asp-area="Admin" asp-controller="Product" asp-action="Index">Productos</a></li>
+                                </ul>
+                            </li>
+                        }
+                        @if (User.IsInRole(DS.Role_Admin))
+                        {
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Usuario
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" asp-area="Admin" asp-controller="User" asp-action="Index">Usuario</a></li>
+                                </ul>
+                            </li>
+                        }
                     </ul>
                     <partial name="_LoginPartial" />
                 </div>
@@ -70,7 +70,7 @@
     </header>
     <div>
         <main role="main" class="pb-3">
-            <partial name="_Notifications"/>
+            <partial name="_Notifications" />
             @RenderBody()
         </main>
     </div>
