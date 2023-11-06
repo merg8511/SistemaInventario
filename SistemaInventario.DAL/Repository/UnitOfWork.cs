@@ -16,6 +16,11 @@ namespace SistemaInventario.DAL.Repository
         public IBrandRepository Brand { get; private set; }
         public IProductRepository Product { get; private set; }
         public IAppUserRepository AppUser { get; private set; }
+        public IWarehouseProductRepository WarehouseProduct { get; private set; }
+        public IStockRepository Stock { get; private set; }
+        public IStockDetailRepository StockDetail { get; private set; }
+        public IKardexStockRepository KardexStock { get; private set; }
+
         public UnitOfWork(ApplicationDbContext dbContext)
         {
             _dbContext = dbContext;
@@ -24,6 +29,10 @@ namespace SistemaInventario.DAL.Repository
             Brand = new BrandRepository(_dbContext);
             Product = new ProductRepository(_dbContext);
             AppUser = new AppUserRepository(_dbContext);
+            WarehouseProduct = new WarehouseProductRepository(_dbContext);
+            Stock = new StockRepository(_dbContext);
+            StockDetail = new StockDetailRepository(_dbContext);
+            KardexStock = new KardexStockRepository(_dbContext);
         }
 
         public void Dispose()

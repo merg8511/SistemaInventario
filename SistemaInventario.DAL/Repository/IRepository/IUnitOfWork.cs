@@ -13,6 +13,10 @@ namespace SistemaInventario.DAL.Repository.IRepository
         IBrandRepository Brand { get; }
         IProductRepository Product { get; }
         IAppUserRepository AppUser { get; }
+        IWarehouseProductRepository WarehouseProduct { get; }
+        IStockRepository Stock { get; }
+        IStockDetailRepository StockDetail { get; }
+        IKardexStockRepository KardexStock { get; }
         Task Save();
     }
 }

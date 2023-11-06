@@ -16,6 +16,10 @@ namespace SistemaInventario.DAL.Data
         public DbSet<Brand> Brands { get; set; }
         public DbSet<Product> Products { get; set; }
         public DbSet<AppUser> AppUsers { get; set; }
+        public DbSet<WarehouseProduct> WarehouseProducts { get; set; }
+        public DbSet<Stock> Stocks { get; set; }
+        public DbSet<StockDetail> StockDetails { get; set; }
+        public DbSet<KardexStock> KardexStocks { get; set; }
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
