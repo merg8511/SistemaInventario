@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Rotativa.AspNetCore;
 using SistemaInventario.DAL.Repository.IRepository;
 using SistemaInventario.Models;
 using SistemaInventario.Models.ViewModels;
@@ -222,6 +223,33 @@ namespace SistemaInventario.Areas.Inventory.Controllers
                 );
 
             return View(kardexStockVM);
+        }
+
+        public async Task<IActionResult> PrintReport(string dateInit, string dateFinal, int productId)
+        {
+            KardexStockVM kardexStockVM = new KardexStockVM();
+            kardexStockVM.Product = new Product();
+
+            kardexStockVM.Product = await _unitOfWork.Product.Get(productId);
+
+            kardexStockVM.InitDate = DateTime.Parse(dateInit);
+            kardexStockVM.FinalDate = DateTime.Parse(dateFinal);
+
+            kardexStockVM.KardexStocks = await _unitOfWork.KardexStock.GetAll(
+                k => k.WarehouseProduct.ProductId == productId &&
+                (k.RecordDate >= kardexStockVM.InitDate &&
+                k.RecordDate <= kardexStockVM.FinalDate),
+                includeProperties: "WarehouseProduct,WarehouseProduct.Product,WarehouseProduct.Warehouse",
+                orderBy: o => o.OrderBy(o => o.RecordDate)
+                );
+
+            return new ViewAsPdf("PrintReport", kardexStockVM)
+            {
+                FileName = "KardexProducto.pdf",
+                PageOrientation = Rotativa.AspNetCore.Options.Orientation.Portrait,
+                PageSize = Rotativa.AspNetCore.Options.Size.A4,
+                CustomSwitches = "--page-offset 0 --footer-center [page] --footer-font-size 12"
+            };
         }
 
         #region API

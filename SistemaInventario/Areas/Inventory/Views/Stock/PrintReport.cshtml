@@ -1,0 +1,116 @@
+﻿@model SistemaInventario.Models.ViewModels.KardexStockVM
+@using SistemaInventario.Utilities
+
+@{
+    ViewData["Title"] = "PrintReport";
+    Layout = null;
+    var title = "Kardex por producto";
+}
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+</head>
+<body>
+    <table style="width:100%; border : 1px solid white;">
+        <thead class="thead-dark">
+            <tr>
+                <th style="text-align:left;">
+                    <table style="width:100%; border : 1px solid white;">
+                        <tr>
+                            <td style="text-align:center; width:40%;"><h4><strong>@title</strong></h4></td>
+
+                        </tr>
+                        <tr>
+                            <td style="text-align:right; width:30%;"><img src="@DS.ImagenRuta@Model.Product.UrlImage" style="border-radius:5px; width:100px; height:100px;" /></td>
+                        </tr>
+                    </table>
+                </th>
+
+            </tr>
+        <thead>
+    </table>
+
+    <div class="row">
+        <div class="col-10">
+            <div class="row mb-2">
+                <div class="form-group col-md-8 mt-2">
+                    <label><strong class="m-2">Desde:</strong>@Model.InitDate.ToShortDateString() <strong class="m-2">Hasta: </strong> @Model.FinalDate.ToShortDateString() </label>
+                </div>
+            </div>
+            <div class="row mb-2">
+                <div class="form-group col-md-8 mt-2">
+                    <label><strong class="m-2">Producto:</strong> @Model.Product.Description</label>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+    <table class="table table-responsive table-hover table-bordered">
+        @foreach (var warehouse in Model.KardexStocks.GroupBy(x => x.WarehouseProduct.Warehouse.Name))
+        {
+            <thead class="table-secondary">
+                <tr>
+                    <th colspan="6">@warehouse.Key</th>
+                    <th colspan="3" class="text-center">Saldo</th>
+                </tr>
+                <tr>
+                    <th class="text-center">Fecha</th>
+                    <th class="text-center">Tipo</th>
+                    <th class="text-center">Detalle</th>
+                    <th class="text-center">Stock Anterior</th>
+                    <th class="text-center">Entrada</th>
+                    <th class="text-center">Salida</th>
+                    <th class="text-center">Stock</th>
+                    <th class="text-center">Costo</th>
+                    <th class="text-center">Total</th>
+                </tr>
+            </thead>
+            @foreach (var item in Model.KardexStocks.Where(d => d.WarehouseProduct.Warehouse.Name == warehouse.Key))
+            {
+                <tr>
+                    <td class="text-center">@item.RecordDate.ToShortDateString()</td>
+                    <td class="text-center">@item.Type</td>
+                    <td>@item.Detail</td>
+                    <td class="text-center">@item.LastStock</td>
+                    @if (item.Type == "Input")
+                    {
+                        <td class="text-center">@item.Quantity</td>
+                    }
+                    else
+                    {
+                        <td class="text-center">--</td>
+                    }
+                    @if (item.Type == "Output")
+                    {
+                        <td class="text-center">@item.Quantity</td>
+                    }
+                    else
+                    {
+                        <td class="text-center">--</td>
+                    }
+                    <td class="text-center">@item.Stock</td>
+                    <td class="text-center">@item.Cost</td>
+                    <td class="text-center">@item.Total</td>
+                </tr>
+            }
+
+
+        }
+    </table>
+
+    @if (Model.KardexStocks.Count() == 0)
+    {
+        <div class="col-12 border-bottom p-0">
+            <h3 class="text-primary text-center">No hay Datos para Mostrar</h3>
+        </div>
+
+    }
+
+</body>
+</html>
+
