@@ -20,6 +20,7 @@ namespace SistemaInventario.DAL.Repository
         public IStockRepository Stock { get; private set; }
         public IStockDetailRepository StockDetail { get; private set; }
         public IKardexStockRepository KardexStock { get; private set; }
+        public ICompanyRepository Company { get; private set; }
 
         public UnitOfWork(ApplicationDbContext dbContext)
         {
@@ -33,6 +34,7 @@ namespace SistemaInventario.DAL.Repository
             Stock = new StockRepository(_dbContext);
             StockDetail = new StockDetailRepository(_dbContext);
             KardexStock = new KardexStockRepository(_dbContext);
+            Company = new CompanyRepository(_dbContext);
         }
 
         public void Dispose()
