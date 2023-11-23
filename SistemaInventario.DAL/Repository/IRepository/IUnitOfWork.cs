@@ -18,6 +18,9 @@ namespace SistemaInventario.DAL.Repository.IRepository
         IStockDetailRepository StockDetail { get; }
         IKardexStockRepository KardexStock { get; }
         ICompanyRepository Company { get; }
+        IShoppingCartRepository ShoppingCart { get; }
+        IOrderRepository Order { get; }
+        IOrderDetailRepository OrderDetail { get; }
         Task Save();
     }
 }

@@ -21,6 +21,9 @@ namespace SistemaInventario.DAL.Data
         public DbSet<StockDetail> StockDetails { get; set; }
         public DbSet<KardexStock> KardexStocks { get; set; }
         public DbSet<Company> Companies { get; set; }
+        public DbSet<ShoppingCart> ShoppingCarts { get; set; }
+        public DbSet<Order> Orders { get; set; }
+        public DbSet<OrderDetail> OrderDetails { get; set; }
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);

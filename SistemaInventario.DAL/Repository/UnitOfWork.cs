@@ -21,6 +21,9 @@ namespace SistemaInventario.DAL.Repository
         public IStockDetailRepository StockDetail { get; private set; }
         public IKardexStockRepository KardexStock { get; private set; }
         public ICompanyRepository Company { get; private set; }
+        public IShoppingCartRepository ShoppingCart { get; private set; }
+        public IOrderRepository Order { get; private set; }
+        public IOrderDetailRepository OrderDetail { get; private set; }
 
         public UnitOfWork(ApplicationDbContext dbContext)
         {
@@ -35,6 +38,9 @@ namespace SistemaInventario.DAL.Repository
             StockDetail = new StockDetailRepository(_dbContext);
             KardexStock = new KardexStockRepository(_dbContext);
             Company = new CompanyRepository(_dbContext);
+            ShoppingCart = new ShoppingCartRepository(_dbContext);
+            Order = new OrderRepository(_dbContext);
+            OrderDetail = new OrderDetailRepository(_dbContext);
         }
 
         public void Dispose()
