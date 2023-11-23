@@ -38,7 +38,7 @@
                             <h5 class="card-title">@p.Description</h5>
                             <p class="card-text"> $ @String.Format("{0:#,##0.00}", p.Price)</p>
                             <div class="card-footer d-flex align-items-end pt-3 px-0 pb-0 mt-auto bg-white">
-                                <a href="#" class="btn btn-outline-primary"><i class="bi bi-tags-fill"></i> Detalle</a>
+                                <a asp-action="Details" asp-route-id="@p.Id" class="btn btn-outline-primary"><i class="bi bi-tags-fill"></i> Detalle</a>
                             </div>
                         </div>
                     </div>

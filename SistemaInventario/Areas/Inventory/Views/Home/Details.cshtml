@@ -1,0 +1,82 @@
+﻿@model SistemaInventario.Models.ViewModels.ShoppingCartVM
+@using SistemaInventario.Utilities
+@{
+    ViewData["Title"] = "Detalle";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<form method="post">
+    <main class="mt-3 pt-2">
+        <div class="container mt-5">
+            <input asp-for="Stock" hidden id="stockId" />
+            <input hidden asp-for="ShoppingCart.ProductId" />
+
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <img src="@DS.ImagenRuta@Model.Product.UrlImage" class="img-fluid" alt="" />
+                    <div class="row">
+                        <a asp-action="Index" class="btn btn-outline-primary ms-1">
+                            Salir
+                        </a>
+                    </div>
+                </div>
+
+                <div class="col-md-6 mb-4">
+                    <div class="p-4">
+                        <div class="mb-3">
+                            <span class="badge bg-dark p-2 me-2">@Model.Product.Category.Name</span>
+                            <span class="badge bg-info p-2">@Model.Product.Brand.Name</span>
+                        </div>
+
+                        <p class="lead text-black">
+                            <h2>$ @String.Format("{0:#,##0.00}", Model.Product.Price)</h2>
+                        </p>
+
+                        <strong style="font-size:20px;">@Model.Product.Description</strong>
+
+                        <p>Serie: @Model.Product.SerieNumber</p>
+
+                        @if (Model.Stock == 0)
+                        {
+                            <div class="p-4">
+                                <strong class="text-danger">Sin stock</strong>
+                            </div>
+                        }
+                        else
+                        {
+                            <div class="p-4">
+                                <strong class="text-primary">En Stock: @Model.Stock</strong>
+                            </div>
+                        }
+
+                        <div class="d-flex justify-content-left mt-2">
+                            <div class="form-outline me-1" style="width:100px">
+                                <input asp-for="ShoppingCart.Quantity" value="1" class="form-control" id="quantityId" />
+                            </div>
+                            <button type="submit" class="btn btn-primary ms-1" id="btnAdd">
+                                Agregar al carrito
+                                <i class="bi bi-cart"></i>
+                            </button>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+</form>
+
+@section Scripts {
+    <script>
+        $("#btnAdd").click(function () {
+            let stock = document.getElementById("stockId").value;
+            let quantity = document.getElementById("quantityId").value;
+
+            if (quantity.toString() == '' || quantity < 1 || parseInt(quantity) > parseInt(stock)) {
+                swal("Error", "Seleccione una cantidad correcta", "error")
+                return false;
+            }
+        });
+    </script>
+}
