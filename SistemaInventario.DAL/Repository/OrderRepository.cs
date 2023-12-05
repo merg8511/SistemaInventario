@@ -21,5 +21,32 @@ namespace SistemaInventario.DAL.Repository
         {
             _dbContext.Update(order);
         }
+
+        public void UpdateState(int id, string orderState, string paymentState)
+        {
+            var order = _dbContext.Orders.FirstOrDefault(o => o.Id == id);
+            if (order != null)
+            {
+                order.OrderState = orderState;
+                order.PaymentState = paymentState;
+            }
+        }
+
+        public void UpdateStripePaymentId(int id, string sessionId, string transactionId)
+        {
+            var order = _dbContext.Orders.FirstOrDefault(o => o.Id == id);
+            if (order != null)
+            {
+                if (!String.IsNullOrEmpty(sessionId))
+                {
+                    order.SessionId = sessionId;
+                }
+                if (!String.IsNullOrEmpty(transactionId))
+                {
+                    order.TransactionId = transactionId;
+                    order.PaymentDate = DateTime.Now;
+                }
+            }
+        }
     }
 }

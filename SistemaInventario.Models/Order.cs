@@ -34,7 +34,11 @@ namespace SistemaInventario.Models
 
         public DateTime PaymentDate { get; set; }
         public DateTime MaxPaymentDate { get; set; }
+
+        //stripe 
         public string TransactionId { get; set; }
+        public string SessionId { get; set; }
+        //stripe 
         public string Phone { get; set; }
         public string Address { get; set; }
         public string City { get; set; }

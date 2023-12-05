@@ -17,5 +17,20 @@ namespace SistemaInventario.Utilities
         public const string Role_Admin = "Admin";
         public const string Role_Client = "Client";
         public const string Role_Inventory = "Inventory";
+
+        // Orders States
+
+        public const string PendingState = "Pendiente";
+        public const string ApprovedState = "Aprobado";
+        public const string InProcessState = "En proceso";
+        public const string SentState = "Enviado";
+        public const string CanceledState = "Cancelado";
+        public const string ReturnedState = "Devuelto";
+
+        // Payment orders states
+        public const string PaymentPendingState = "Pendiente";
+        public const string PaymentApprovedState = "Aprobado";
+        public const string PaymentDelayedState = "Retrasado";
+        public const string PaymentRejectState = "Rechazado";
     }
 }
