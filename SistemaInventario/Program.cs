@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.EntityFrameworkCore;
 using SistemaInventario.DAL.Data;
+using SistemaInventario.DAL.Inicializador;
 using SistemaInventario.DAL.Repository;
 using SistemaInventario.DAL.Repository.IRepository;
 using SistemaInventario.Utilities;
@@ -54,6 +55,8 @@ builder.Services.AddSession(options =>
 
 builder.Services.Configure<StripeSettings>(builder.Configuration.GetSection("Stripe"));
 
+builder.Services.AddScoped<IDbInicializador, DbInicializador>();
+
 var app = builder.Build();
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
@@ -79,6 +82,24 @@ app.UseSession();
 app.UseAuthentication();
 
 app.UseAuthorization();
+
+//aplicar migrations y datos iniciales
+using (var scope = app.Services.CreateScope())
+{
+    var services = scope.ServiceProvider;
+    var loggerFactory = services.GetRequiredService<ILoggerFactory>();
+
+    try
+    {
+        var inicializador = services.GetRequiredService<IDbInicializador>();
+        inicializador.Inicializar();
+    }
+    catch (Exception ex)
+    {
+        var logger = loggerFactory.CreateLogger<Program>();
+        logger.LogError(ex, "Un error ocurrio al ejecutar la migracion");
+    }
+}
 
 app.MapControllerRoute(
     name: "default",
