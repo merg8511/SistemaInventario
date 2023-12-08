@@ -1,0 +1,65 @@
+﻿@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+    var state = Context.Request.Query["state"];
+    var approved = "text-primary";
+    var completed = "text-primary";
+    var all = "text-primary";
+
+    switch (state)
+    {
+        case "approved":
+            approved = "active text-white";
+            break;
+
+        case "completed":
+            completed = "active text-white";
+            break;
+        default:
+            all = "active text-white";
+            break;
+    }
+}
+
+<br />
+<div class="border p-3">
+    <div class="d-lg-flex justify-content-between mb-3">
+        <div class="p-2">
+            <h2 class="text-primary">Lista de Ordenes</h2>
+        </div>
+        <div class="p-2">
+            <ul class="list-group list-group-horizontal-sm">
+                <a style="text-decoration:none;" asp-controller="Order" asp-action="Index" asp-route-state="approved">
+                <li class="list-group-item @approved">Aprobados</li>
+                </a>
+                <a style="text-decoration:none;" asp-controller="Order" asp-action="Index" asp-route-state="completed">
+                <li class="list-group-item @completed">Completados</li>
+                </a>
+                <a style="text-decoration:none;" asp-controller="Order" asp-action="Index" asp-route-state="all">
+                <li class="list-group-item @all">Todas</li>
+                </a>
+            </ul>
+        </div>
+    </div>
+    <br /><br />
+    <table id="tblDatos" class="table table-responsive table-hover display nowrap" style="width:100%">
+        <thead class="table-dark">
+            <tr>
+                <th>Id</th>
+                <th>Cliente</th>
+                <th>Telefono</th>
+                <th>Email</th>
+                <th>Estado</th>
+                <th>Monto</th>
+                <th></th>
+            </tr>
+        </thead>
+    </table>
+
+</div>
+
+@section Scripts {
+    <script src="~/js/order.js"></script>
+}
+
